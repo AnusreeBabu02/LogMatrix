@@ -1,0 +1,182 @@
+/* ===========================================================
+   Wazuh-inspired dark SOC theme
+   =========================================================== */
+
+:root {
+    --bg-main: #0e1420;
+    --bg-panel: #161d2b;
+    --bg-panel-alt: #1b2436;
+    --border-subtle: #263041;
+    --text-primary: #e6ebf2;
+    --text-muted: #8996ab;
+    --accent-blue: #3aa6ff;
+    --accent-teal: #2ec4b6;
+    --sev-critical: #ff4d4f;
+    --sev-medium: #ffc53d;
+    --sev-suspicious: #ff9f45;
+    --sev-info: #52c41a;
+}
+
+.stApp {
+    background: linear-gradient(180deg, #0b1019 0%, #0e1420 100%);
+    color: var(--text-primary);
+}
+
+section[data-testid="stSidebar"] {
+    background-color: var(--bg-panel);
+    border-right: 1px solid var(--border-subtle);
+}
+
+/* ---- Top nav bar ---- */
+.soc-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #101827 0%, #142033 100%);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 14px 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+.soc-navbar .brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+.soc-navbar .brand span {
+    color: var(--accent-blue);
+}
+.soc-navbar .subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+.soc-navbar .status-pill {
+    background: rgba(46,196,182,0.12);
+    color: var(--accent-teal);
+    border: 1px solid rgba(46,196,182,0.4);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ---- KPI cards ---- */
+.kpi-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-align: left;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+    height: 100%;
+}
+.kpi-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 6px;
+}
+.kpi-value {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.kpi-value.critical { color: var(--sev-critical); }
+.kpi-value.medium { color: var(--sev-medium); }
+.kpi-value.info { color: var(--accent-blue); }
+.kpi-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ---- Section headers ---- */
+.section-header {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 6px 0 10px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ---- Severity badges ---- */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.badge-critical { background: rgba(255,77,79,0.15); color: var(--sev-critical); border: 1px solid rgba(255,77,79,0.5); }
+.badge-medium   { background: rgba(255,197,61,0.15); color: var(--sev-medium); border: 1px solid rgba(255,197,61,0.5); }
+.badge-suspicious { background: rgba(255,159,69,0.15); color: var(--sev-suspicious); border: 1px solid rgba(255,159,69,0.5); }
+.badge-info     { background: rgba(82,196,26,0.15); color: var(--sev-info); border: 1px solid rgba(82,196,26,0.5); }
+
+/* ---- Event table ---- */
+.event-table-wrap {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 6px 10px;
+    overflow-x: auto;
+}
+table.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+}
+table.event-table th {
+    text-align: left;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border-subtle);
+}
+table.event-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text-primary);
+    vertical-align: top;
+}
+table.event-table tr:hover td {
+    background: rgba(58,166,255,0.05);
+}
+.mono {
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    font-size: 12px;
+    color: var(--accent-blue);
+}
+.msg-cell {
+    max-width: 420px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-muted);
+}
+
+/* Streamlit widget tweaks */
+.stButton>button {
+    background: var(--bg-panel-alt);
+    color: var(--text-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+}
+.stButton>button:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+div[data-testid="stMetricValue"] {
+    color: var(--text-primary);
+}
